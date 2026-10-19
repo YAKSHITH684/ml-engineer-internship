@@ -3,15 +3,16 @@ Unit test suite verifying data utilities, defensive validation,
 and leak-free partitioning mechanics.
 """
 
-import pytest
-import os
-import pandas as pd
+
 import numpy as np
+import pandas as pd
+import pytest
+
 from src.utils import (
+    detect_outliers_iqr,
     load_data,
     summarize_dataframe_health,
-    detect_outliers_iqr,
-    train_val_test_split
+    train_val_test_split,
 )
 
 
@@ -43,7 +44,7 @@ def test_load_data_missing_file():
 def test_load_data_empty_file(tmp_path):
     empty_file = tmp_path / "empty.csv"
     empty_file.write_text("")
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="empty"):
         load_data(str(empty_file))
 
 
@@ -60,7 +61,7 @@ def test_detect_outliers_iqr(sample_df):
     # Insert an obvious outlier
     sample_df.loc[0, "session_duration_sec"] = 999999.0
     outliers = detect_outliers_iqr(sample_df, "session_duration_sec")
-    assert outliers.iloc[0] == True
+    assert outliers.iloc[0]
     assert isinstance(outliers, pd.Series)
 
 
@@ -73,19 +74,24 @@ def test_train_val_test_split_ratios_and_no_leakage(sample_df):
         stratify_col="is_fraud",
         seed=123
     )
-    
+
     assert len(train_df) + len(val_df) + len(test_df) == 100
-    
+
     # Verify strict index disjointness (zero data leakage)
     train_idx = set(train_df.index)
     val_idx = set(val_df.index)
     test_idx = set(test_df.index)
-    
+
     assert train_idx.isdisjoint(val_idx)
     assert train_idx.isdisjoint(test_idx)
     assert val_idx.isdisjoint(test_idx)
 
 
 def test_train_val_test_split_invalid_ratios(sample_df):
-    with pytest.raises(ValueError):
-        train_val_test_split(sample_df, train_ratio=0.5, val_ratio=0.1, test_ratio=0.1)
+    with pytest.raises(ValueError, match="sum to 1.0"):
+        train_val_test_split(
+            sample_df,
+            train_ratio=0.5,
+            val_ratio=0.1,
+            test_ratio=0.1,
+        )
