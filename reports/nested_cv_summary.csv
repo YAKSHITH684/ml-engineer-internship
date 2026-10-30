@@ -1,0 +1,2 @@
+baseline_mean_pr_auc,baseline_fold_std,nested_xgboost_mean_pr_auc,nested_xgboost_fold_std,mean_paired_difference,difference_ci_95_low,difference_ci_95_high,paired_t_statistic,paired_t_p_value,wilcoxon_statistic,wilcoxon_p_value,outer_folds,inner_folds,iterations_per_outer_fold,total_inner_candidate_fits
+0.22310564938986857,0.032276874195684285,0.24886763460693628,0.038684540420120456,0.025761985217067657,0.004110638863933504,0.047413331570201805,3.3035699761807895,0.02983347044944169,0.0,0.0625,5,3,10,150

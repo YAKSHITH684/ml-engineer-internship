@@ -1,0 +1,2 @@
+baseline_mean_pr_auc,baseline_fold_std,xgboost_mean_pr_auc,xgboost_fold_std,mean_paired_difference,difference_ci_95_low,difference_ci_95_high,paired_t_statistic,paired_t_p_value,wilcoxon_statistic,wilcoxon_p_value,folds
+0.22310564938986857,0.032276874195684285,0.2466604864109147,0.03639248914915314,0.023554837021046132,0.008485857067168825,0.03862381697492344,4.3399561318009425,0.01225336313453372,0.0,0.0625,5
