@@ -1,0 +1,12 @@
+{
+  "threshold": 0.7883942723274231,
+  "oof_precision": 0.24569855471438404,
+  "oof_recall": 0.4559386973180077,
+  "oof_f1": 0.3193202146685968,
+  "model": "Saved XGBoost pipeline",
+  "test_threshold": 0.7883942723274231,
+  "false_positive_count": 286,
+  "false_negative_count": 116,
+  "selected_false_positives": 10,
+  "selected_false_negatives": 10
+}
