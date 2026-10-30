@@ -53,4 +53,4 @@ diagnose_lightgbm.py
 .idea/
 
 # Large generated data (keep raw benchmark, ignore generated exports if desired)
-# data/clean/*.parquet
+data/clean/*.parquet
