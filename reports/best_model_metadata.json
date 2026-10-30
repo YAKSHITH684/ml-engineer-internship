@@ -1,0 +1,28 @@
+{
+    "best_model": "XGBoost",
+    "best_cv_pr_auc": 0.2466604864109147,
+    "test_threshold": 0.5,
+    "test_metrics": {
+        "model": "XGBoost",
+        "threshold": 0.5,
+        "accuracy": 0.8264,
+        "precision": 0.14853556485355648,
+        "recall": 0.7244897959183674,
+        "f1": 0.2465277777777778,
+        "roc_auc": 0.7746499515709697,
+        "pr_auc": 0.24377322596869577
+    },
+    "best_parameters": {
+        "classifier__subsample": 0.9,
+        "classifier__reg_lambda": 5.0,
+        "classifier__n_estimators": 100,
+        "classifier__min_child_weight": 3,
+        "classifier__max_depth": 3,
+        "classifier__learning_rate": 0.03,
+        "classifier__gamma": 0.5,
+        "classifier__colsample_bytree": 0.8
+    },
+    "random_state": 42,
+    "cv_folds": 5,
+    "n_iter": 10
+}

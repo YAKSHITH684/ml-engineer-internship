@@ -38,6 +38,16 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
+# Temporary diagnostic scripts
+diagnose_lightgbm.py
+
+# Python generated files
+__pycache__/
+*.pyc
+
+# Temporary diagnostic script
+diagnose_lightgbm.py
+
 # IDEs
 .vscode/
 .idea/
